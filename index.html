@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Jianan Cai</title>
+    <style>
+        body {font-family: 'Calibri';}
+
+        div.desc {
+        padding: 15px;
+        text-align: center;
+        font-family:verdana;
+        }
+
+        .container {
+        padding: 6px;
+        justify-content: center;
+        }
+
+        .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 20%; 
+        display:flex;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1>CS180-Project3</h1>
+    </div>
+
+
+    <h2>Part 1. Defining Correspondences</h2>
+    <p>
+        For this part, I use the tool that someone who built it last to select the points. I selected around 40 points for each image.
+        Here are the triangulation results:
+    </p>
+    <div class="container">
+        
+        <div class="responsive">
+            <div>
+                <img src="output/Clooney_George_tri.png" alt="cameraman" style="width: 100%; height: auto; ">
+                <div class="desc">Clooney_George</div>
+            </div>
+        </div>
+        
+        <div class="responsive">
+            <div >
+                <img src="output/Cooper_Bradley_tri.png" alt="cameraman" style="width: 100%; height: auto; ">
+                <div class="desc">Cooper_Bradley</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h2 style="clear: both;">Part 2. Computing the "Mid-way Face"</h2>
+
+        <p>Here are my steps to compute the mid-way of two people:</p>
+        <ol>
+            <li>Compute the average shape</li>
+            <li>warping both faces into that shape</li>
+            <li>averaging the colors together. (cross-dissolve)</li>
+        </ol>
+        
+        <div class="responsive">
+            <div>
+                <img src="output/img1_to_avg_warp.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div class="desc">Clooney_George</div>
+            </div>
+        </div>
+        
+        <div class="responsive">
+            <div >
+                <img src="output/mid_img.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div class="desc">Mid Way</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div >
+                <img src="output/img2_to_avg_warp.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div class="desc">Cooper_Bradley</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h2 style="clear: both;">Part 3. The Morph Sequence</h2>
+
+        <p>For this part, I setup a range of weights in [0, 1] and I created a morph sequence 45 frames, with duration of 30 ms per frame.</p>
+        
+        <div class="responsive">
+            <div>
+                <img src="output/clooney_cooper.gif" alt="cameraman" style="width: 100%; height: auto; ">
+                <div class="desc">Morphed</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h2 style="clear: both;">Part 4. The "Mean face" of a population</h2>
+
+        <p>For this part, I use the iamges from FEI database which is part one that contains images of 200 individuals taken at the Artificial Intelligence Laboratory 
+            of FEI in São Bernardo do Campo, São Paulo, Brazil. 
+        </p>
+
+        <p>
+            I seperated the iamges as neutral and smiling. I used the both images to compute the mean face of the population.
+            Also, besides the original points that are provided, I added some more points to make the result better.
+        </p>
+
+        <p>
+            Here are some examples of the face that I use to compute the mean face:
+        </p>
+        
+        <div class="responsive">
+            <div>
+                <img src="input/5a.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="input/10a.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="input/15a.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+        <div>
+            <p></p>
+        </div>
+
+
+    </div>
+
+    <div class="container">
+        <h2 style="clear: both;"></h2>
+
+
+        <div class="responsive">
+            <div>
+                <img src="input/5b.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="input/10b.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="input/15b.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <p style="clear: both;">Here are the steps to compute the mean face of a population:</p>
+        <ol>
+            <li>Compute the average face shape of the whole population or some subset of the population</li>
+            <li>Morph each of the faces in the dataset into the average shape</li>
+            <li>Compute the average face of the population and display it.</li>
+        </ol>
+
+
+        <div class="responsive">
+            <div>
+                <img src="output/netural_avg_face.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Average neutral face</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="output/smile_avg_face.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Average expression face</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <p style="clear: both;">Here is my face warped into the average geometry, and the average face warped into my face’s geometry.</p>
+
+
+        <div class="responsive">
+            <div>
+                <img src="output/me_to_avg_warp.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="output/neutral_to_me_warp.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <h2 style="clear: both;">Part 5. Caricatures: Extrapolating from the mean</h2>
+        
+        <p>Here, the formula I used is: avg_img + apha * (my_img - avg_img), where apha is 1.5</p>
+        
+        <div class="responsive">
+            <div>
+                <img src="output/caricature.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Alph = 1.5</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h2 style="clear: both;">Bells and Whistles</h2>
+
+        <div class="responsive">
+            <div>
+                <img src="input/me_2.jpg"cameraman" style="width: 100%; height: auto; ">
+                <div>Me</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="input/26-13.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Woman</div>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+    <div class="container">
+        <h2 style="clear: both;"></h2>
+        <div class="responsive">
+            <div>
+                <img src="output/me_to_woman_shape.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Shape</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="output/me_to_woman_appearance.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Appearance</div>
+            </div>
+        </div>
+
+        <div class="responsive">
+            <div>
+                <img src="output/Mewoman.jpg" alt="cameraman" style="width: 100%; height: auto; ">
+                <div>Both</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    
+
+
+
+</body>
